@@ -28,7 +28,7 @@ void TableForm::CreateTable()
         }
     }
     ui->tableWidget->setRowCount(RowSize);
-    ui->tableWidget->setColumnCount(5);
+    ui->tableWidget->setColumnCount(4);
     int RowCurrent=0;
     for(int i=0;i<Data->UserSize;i++)
     {
@@ -71,6 +71,8 @@ void TableForm::CreateTable()
             }
         }
     }
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 /*
     QString creationDate; //FIXME change type

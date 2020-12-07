@@ -20,17 +20,24 @@ class LogWindow : public QMainWindow
 
 public:
     //LogWindow(QTcpSocket * Client, MyAccount * CurrentAccount);
-    explicit LogWindow(QWidget *parent = nullptr);
+    explicit LogWindow(QWidget *parent = nullptr, QTcpSocket *Client = NULL);
     ~LogWindow();
+
+    void LogAccept();
+
 signals:
     void SigLog();
 
 private slots:
-
     void on_BReg_clicked();
+
+    void on_BLog_clicked();
+
+    void on_BNext_clicked();
 
 private:
     Ui::LogWindow *ui;
+    QTcpSocket *Client;
     bool TypeClose;
     void closeEvent (QCloseEvent *event);
 };
