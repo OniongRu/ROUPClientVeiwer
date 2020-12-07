@@ -30,6 +30,7 @@ private slots:
     void onSokConnected();
     void onSokReadyRead();
     void onSokDisconnected();
+    void onSokErrorConnect(QAbstractSocket::SocketError socketError);
 
     void on_AddTab_clicked();
 
@@ -37,14 +38,18 @@ private slots:
 
     void on_pushButton_clicked();
 
+
+
 private:
     Ui::MainWindow *ui;
-    QTcpSocket *Client;
+    QTcpSocket *Client = nullptr;
     LogWindow *Log;
     //UserManager *Data;
     std::vector<QString>Users;
     std::vector<QString>Programs;
-    void Test();
+    void LogSuccessful();
+
+    bool LogInStatus = false;
     //QProgressDialog d;
     //MyAccount *CurrentAccount;
 };
