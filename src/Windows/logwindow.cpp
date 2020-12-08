@@ -50,9 +50,12 @@ void LogWindow::on_BLog_clicked()
 
 void LogWindow::on_BNext_clicked()
 {
+
     QByteArray arrBlock;
     QDataStream out(&arrBlock, QIODevice::ReadWrite);
-    QString m = "flag2";
+    //QString m = "flag2";
+    QString m = "Login:";
+    m += ui->EditLogin->text();
     out << quint16(0) << qUtf8Printable(m);
     out.device()->seek(0);
     out << quint16(arrBlock.size() - sizeof(quint16));

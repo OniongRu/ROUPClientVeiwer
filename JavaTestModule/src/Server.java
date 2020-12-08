@@ -59,15 +59,9 @@ public class Server {
         String text = new String(buffer.array(),"UTF-8").trim();
         if(text.length()>0)
             System.out.println(client+" | data: /"+text+"/");
-        String meme1 = new String("flag2".getBytes(),"UTF-8");
-        if(text.equals(meme1))
-        {
-            System.out.println("Accept");
-            ByteBuffer bufferWrite = ByteBuffer.allocate(30000);
-            bufferWrite.put(JTest2.getBytes());
-            bufferWrite.flip();
-            client.write(bufferWrite);
-        }
+
+
+
         String meme2 = new String("NeedJson".getBytes(),"UTF-8");
         if(text.equals(meme2))
         {
@@ -77,6 +71,29 @@ public class Server {
             System.out.println(JTest5.getBytes().length);
             bufferWrite.flip();
             client.write(bufferWrite);
+            return;
+        }
+
+        String meme1 = new String("flag2".getBytes(),"UTF-8");
+        String meme3 = new String("Login:".getBytes(),"UTF-8");
+        if(text.startsWith(meme3)) {
+            text=text.substring(6);
+            if(text.equals(meme1))
+            {
+                System.out.println("Accept");
+                ByteBuffer bufferWrite = ByteBuffer.allocate(30000);
+                bufferWrite.put(JTest2.getBytes());
+                bufferWrite.flip();
+                client.write(bufferWrite);
+                return;
+            }
+            System.out.println("NotAccept");
+            ByteBuffer bufferWrite = ByteBuffer.allocate(30000);
+            bufferWrite.put(JTest1.getBytes());
+            System.out.println(JTest1.getBytes().length);
+            bufferWrite.flip();
+            client.write(bufferWrite);
+            return;
         }
     }
     private static void showClientAnswer2(SelectionKey key) throws  IOException {
