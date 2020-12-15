@@ -56,8 +56,9 @@ void LogWindow::on_BNext_clicked()
     //QString m = "flag2";
     QString m = "Login:";
     m += ui->EditLogin->text();
-    out << quint16(0) << qUtf8Printable(m);
-    out.device()->seek(0);
-    out << quint16(arrBlock.size() - sizeof(quint16));
+    out << qUtf8Printable(m);
+    //out << quint16(0) << qUtf8Printable(m);
+    //out.device()->seek(0);
+    //out << quint16(arrBlock.size() - sizeof(quint16));
     Client->write(arrBlock);
 }

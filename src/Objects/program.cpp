@@ -20,10 +20,3 @@ void Program::read(const QJsonObject &json)
     }
 }
 
-/*
-    QString name;
-    int ID;
-    int HourSize;
-    HourInfo *Hours;
-
-  */

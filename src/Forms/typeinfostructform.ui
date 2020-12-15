@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>546</height>
+    <width>764</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,8 +35,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>436</width>
-        <height>735</height>
+        <width>744</width>
+        <height>566</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -56,7 +56,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="QRadioButton" name="radioButton_2">
+            <widget class="QCheckBox" name="checkBox">
              <property name="text">
               <string>Выбрать всех</string>
              </property>
@@ -101,9 +101,9 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QRadioButton" name="radioButton">
+            <widget class="QCheckBox" name="checkBox_2">
              <property name="text">
-              <string>Выбрать все</string>
+              <string>Выбрать всех</string>
              </property>
             </widget>
            </item>
@@ -141,7 +141,28 @@
           </widget>
          </item>
          <item>
-          <widget class="QCalendarWidget" name="calendarStart"/>
+          <widget class="QDateTimeEdit" name="dateTimeEditStart">
+           <property name="dateTime">
+            <datetime>
+             <hour>0</hour>
+             <minute>0</minute>
+             <second>0</second>
+             <year>2000</year>
+             <month>1</month>
+             <day>1</day>
+            </datetime>
+           </property>
+           <property name="time">
+            <time>
+             <hour>0</hour>
+             <minute>0</minute>
+             <second>0</second>
+            </time>
+           </property>
+           <property name="displayFormat">
+            <string>HH:mm:ss, dd.MM.yyyy</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -159,7 +180,18 @@
           </widget>
          </item>
          <item>
-          <widget class="QCalendarWidget" name="calendarEnd"/>
+          <widget class="QDateTimeEdit" name="dateTimeEditEnd">
+           <property name="date">
+            <date>
+             <year>2050</year>
+             <month>1</month>
+             <day>1</day>
+            </date>
+           </property>
+           <property name="displayFormat">
+            <string>HH:mm:ss, dd.MM.yyyy</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

@@ -14,6 +14,7 @@
 #include "Forms/typeinfostructform.h"
 #include "Forms/tableform.h"
 #include <QProgressDialog>
+//#include "Tests/testentiretydata.h"
 namespace Ui {
 class MainWindow;
 }
@@ -50,6 +51,8 @@ private:
     void LogSuccessful();
 
     bool LogInStatus = false;
+
+    //TestEntiretyData *UnitTest = nullptr;
     //QProgressDialog d;
     //MyAccount *CurrentAccount;
 };

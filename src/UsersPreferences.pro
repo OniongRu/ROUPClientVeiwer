@@ -1,6 +1,5 @@
 QT       += core gui
 QT       += network
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -18,6 +17,7 @@ SOURCES += \
     Objects/program.cpp \
     Objects/user.cpp \
     Objects/usermanager.cpp \
+    Tests/testentiretydata.cpp \
     Windows/logwindow.cpp \
     Windows/mainwindow.cpp \
     main.cpp
@@ -31,6 +31,7 @@ HEADERS += \
     Objects/program.h \
     Objects/user.h \
     Objects/usermanager.h \
+    Tests/testentiretydata.h \
     Windows/logwindow.h \
     Windows/mainwindow.h
 

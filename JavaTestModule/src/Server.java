@@ -17,6 +17,7 @@ public class Server {
     static String JTest4="{\"OpType\":\"1\",\"Users\":[{\"name\":\"Goose\", \"ID\":\"11\", \"Programs\":[{\"name\":\"Skype\",\"ID\":\"121\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]},{\"name\":\"Zoom\",\"ID\":\"122\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]},{\"name\":\"DarkSouls\",\"ID\":\"123\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]}]}]}";
     static String JTest5="{\"OpType\":\"1\",\"Users\":[{\"name\":\"Goose\", \"ID\":\"11\", \"Programs\":[{\"name\":\"Skype\",\"ID\":\"121\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]},{\"name\":\"Zoom\",\"ID\":\"122\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]},{\"name\":\"DarkSouls\",\"ID\":\"123\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]}]},{\"name\":\"Yuki\", \"ID\":\"11\", \"Programs\":[{\"name\":\"Skype\",\"ID\":\"121\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]},{\"name\":\"Wakanim\",\"ID\":\"122\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]},{\"name\":\"Sekiro\",\"ID\":\"123\",\"HourWork\":[{\"creationDate\":\"Nov 17, 2020, 8:54:32 PM\",\"workTime\":\"5\",\"activeWindowTime\":\"2\",\"threadAmount\":\"2\",\"cpuUsage\":\"1.941\",\"ramUsage\":\"1231\"},{\"creationDate\":\"Nov 18, 2020, 8:54:32 PM\",\"workTime\":\"2\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"4.912\",\"ramUsage\":\"2131\"},{\"creationDate\":\"Nov 19, 2020, 8:54:32 PM\",\"workTime\":\"7\",\"activeWindowTime\":\"1\",\"threadAmount\":\"2\",\"cpuUsage\":\"8.271\",\"ramUsage\":\"3131\"}]}]}]}";
 
+
     private static final int PORT = 5020;
     public static void main(String[] args) {
         try {
@@ -55,24 +56,24 @@ public class Server {
     private static void showClientAnswer(SelectionKey key) throws  IOException {
         SocketChannel client = (SocketChannel) key.channel();
         ByteBuffer buffer = ByteBuffer.allocate(1024);
-        client.read(buffer);
+        int inf = client.read(buffer);
+
+
+        System.out.println(inf);
         String text = new String(buffer.array(),"UTF-8").trim();
+        System.out.println("| data: /"+text+"/");
+
+        String Nikita = new String("<StartMsg>".getBytes(),"UTF-8");
+        String meme2 = new String("NeedJson".getBytes(),"UTF-8");
+        String[] words=text.split(Nikita);
+        for (String word : words) {
+            if(word.startsWith(meme2))
+                text=word;
+        }
         if(text.length()>0)
             System.out.println(client+" | data: /"+text+"/");
 
 
-
-        String meme2 = new String("NeedJson".getBytes(),"UTF-8");
-        if(text.equals(meme2))
-        {
-            System.out.println("GiveJson");
-            ByteBuffer bufferWrite = ByteBuffer.allocate(30000);
-            bufferWrite.put(JTest5.getBytes());
-            System.out.println(JTest5.getBytes().length);
-            bufferWrite.flip();
-            client.write(bufferWrite);
-            return;
-        }
 
         String meme1 = new String("flag2".getBytes(),"UTF-8");
         String meme3 = new String("Login:".getBytes(),"UTF-8");
@@ -95,6 +96,24 @@ public class Server {
             client.write(bufferWrite);
             return;
         }
+
+        System.out.println(text);
+        if(text.startsWith(meme2))
+        {
+            System.out.println("GiveJson");
+            ByteBuffer bufferWrite = ByteBuffer.allocate(JTest5.getBytes().length+1000);
+            bufferWrite.put(JTest5.getBytes());
+            System.out.println(JTest5.getBytes().length);
+            bufferWrite.flip();
+            client.write(bufferWrite);
+            return;
+        }
+
+        /*String meme4 = new String("Test".getBytes(),"UTF-8");
+        if(text.startsWith(meme4)) {
+            text = text.substring(4);
+            System.out.println(text);
+        }*/
     }
     private static void showClientAnswer2(SelectionKey key) throws  IOException {
         SocketChannel client = (SocketChannel) key.channel();

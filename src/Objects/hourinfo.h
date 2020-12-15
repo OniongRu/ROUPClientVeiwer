@@ -3,7 +3,7 @@
 #include <QString>
 #include <QJsonObject>
 #include <QJsonArray>
-
+#include <QDateTime>
 #include <QtNetwork/QTcpSocket>
 #include <QNetworkAccessManager>
 class HourInfo
@@ -11,7 +11,7 @@ class HourInfo
 public:
     HourInfo();
     //TODO add methods
-    QString creationDate; //FIXME change type
+    QDateTime creationDate; //FIXME change type
     int workTime;
     int activeWindowTime;
     int threadAmount;
