@@ -70,7 +70,9 @@ void TypeInfoStructForm::on_buttonSendJson_clicked()
     qDebug()<<qUtf8Printable(msg);
     //out.device()->seek(0);
     //out << quint16(arrBlock.size() - sizeof(quint16));
-    int i = Client->write(arrBlock, arrBlock.size());
+    //int i = Client->write(arrBlock, arrBlock.size());
+    int i = Client->write(arrBlock);
+    Client->flush();
     qDebug()<<i;
 }
 
