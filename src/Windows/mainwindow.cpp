@@ -23,15 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(Log, &LogWindow::SigLog, this, &MainWindow::LogSuccessful);
     Log->setWindowFlags(Qt::WindowStaysOnTopHint);
     Log->show();
+    //UnitTest = new TestEntiretyData();
 
 
-    //FIXME delete 4 tests
-    /*Users.push_back("Goose");
-    Users.push_back("Sportorg");
-    Users.push_back("JoJo");
-    Programs.push_back("Discord");
-    Programs.push_back("Wakanim");
-    Programs.push_back("DarkSouls");*/
 }
 
 
@@ -102,6 +96,7 @@ void MainWindow::onSokReadyRead()
         if(Accept==0)
         {
              Log->statusBar()->showMessage("Wrong log data");
+             //UnitTest->TestBad(data);
         }
         if(Accept==1)
         {
@@ -112,6 +107,7 @@ void MainWindow::onSokReadyRead()
             foreach(const QJsonValue & value, Array_Programs)
                 Programs.push_back(value.toString());
             Log->LogAccept();
+            //UnitTest->TestAvalible(data);
         }
     }
     if(OpType==1)
@@ -125,6 +121,7 @@ void MainWindow::onSokReadyRead()
         QWidget *new_content = new TableForm(container,Data);
         container->layout()->addWidget(new_content);
         new_content->show();
+        //UnitTest->TestJson(data);
     }
 
 }
@@ -192,16 +189,23 @@ void MainWindow::LogSuccessful()
 {
     this->setEnabled(1);
     LogInStatus=true;
+    QWidget *container = new QWidget;
+    QHBoxLayout *hlayout = new QHBoxLayout();
+    hlayout->addWidget(new TypeInfoStructForm(container,Users,Programs,Client));
+    container->setLayout(hlayout);
+    ui->tabWidget->addTab(container, QString("Tab %0").arg(ui->tabWidget->count()+1));
+    ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-
-    QWidget *container = ui->tabWidget->currentWidget();
-    QWidget *old_content = dynamic_cast<QWidget*>(container->children()[0]);
-    delete old_content;
-    QWidget *new_content = new ChooseForm(container);
-    container->layout()->addWidget(new_content);
-    new_content->show();
-
+    // if need tests
+    /*QString TestData ="Test";
+    TestData += UnitTest->ShowResTest();
+    QByteArray arrBlock;
+    QDataStream out(&arrBlock, QIODevice::ReadWrite);
+    out << quint16(0) << qUtf8Printable(TestData);
+    out.device()->seek(0);
+    out << quint16(arrBlock.size() - sizeof(quint16));
+    Client->write(arrBlock);*/
 }

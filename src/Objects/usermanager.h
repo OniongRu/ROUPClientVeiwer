@@ -6,14 +6,23 @@
 #include <QJsonObject>
 #include <QtNetwork/QTcpSocket>
 #include <QNetworkAccessManager>
+#include <QDateTime>
+#include <vector>
 
 class UserManager
 {
 public:
     UserManager();
-    int UserSize;
+    int UserSize=0;
     User *Users;
+    std::vector<QString> AvalibleProgram;
+    QDateTime StartDate=QDateTime::currentDateTime();
+    QDateTime EndDate=QDateTime::currentDateTime();
+
     void read(const QJsonObject &json);
+    void initAvalibleProgram();
+    void initTimeBorders();
+
 
     UserManager& operator=(const UserManager& right) {
             //проверка на самоприсваивание
