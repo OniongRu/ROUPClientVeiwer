@@ -40,6 +40,7 @@ private:
     void CreateTable();
     void InitFilter();
     void InitCompliter();
+    void PrintCellsDecs(int row, int offsetRow,int string, int offsetString, int colorIndex);
 
 };
 
