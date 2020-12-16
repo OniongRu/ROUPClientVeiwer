@@ -84,6 +84,7 @@ void MainWindow::onSokReadyRead()
     qDebug()<<"ReadJson\n";
     QJsonObject obj;
     QString data = Client->readAll();
+    qDebug()<<data;
     QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
     if(doc.isObject())
     {
@@ -100,8 +101,14 @@ void MainWindow::onSokReadyRead()
         }
         else if(Accept==1)
         {
+<<<<<<< HEAD
             QJsonArray Array_Users = obj["users"].toArray();
             QJsonArray Array_Programs = obj["programs"].toArray();
+=======
+
+            QJsonArray Array_Users = obj["Users"].toArray();
+            QJsonArray Array_Programs = obj["Programs"].toArray();
+>>>>>>> refs/remotes/origin/main
             foreach(const QJsonValue & value, Array_Users)
                 Users.push_back(value.toString());
             foreach(const QJsonValue & value, Array_Programs)
@@ -112,9 +119,10 @@ void MainWindow::onSokReadyRead()
     }
     if(OpType==1)
     {
+        qDebug()<<"ReadBigJson\n";
         UserManager *Data = new UserManager();
         Data->read(obj);
-        qDebug()<<data;
+        //qDebug()<<data;
         QWidget *container = ui->tabWidget->currentWidget();
         QWidget *old_content = dynamic_cast<QWidget*>(container->children()[0]);
         delete old_content;
@@ -197,15 +205,7 @@ void MainWindow::LogSuccessful()
     ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_tabWidget_tabBarDoubleClicked(int index)
 {
-    // if need tests
-    /*QString TestData ="Test";
-    TestData += UnitTest->ShowResTest();
-    QByteArray arrBlock;
-    QDataStream out(&arrBlock, QIODevice::ReadWrite);
-    out << quint16(0) << qUtf8Printable(TestData);
-    out.device()->seek(0);
-    out << quint16(arrBlock.size() - sizeof(quint16));
-    Client->write(arrBlock);*/
+    //TODO change name by DoubleClick
 }

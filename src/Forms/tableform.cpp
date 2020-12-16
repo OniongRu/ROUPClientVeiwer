@@ -21,6 +21,8 @@ TableForm::~TableForm()
 
 void TableForm::CreateTable()
 {
+    QColor* orangeColor =new QColor(245,133,86,150);
+
     int RowSize=0;
     for(int i=0;i<Data->UserSize;i++)
     {
@@ -39,6 +41,7 @@ void TableForm::CreateTable()
     {
         ui->tableWidget->setItem(RowCurrent,0,new QTableWidgetItem("UserName"));
         ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem(Data->Users[i].userName));
+
         RowCurrent++;
         ui->tableWidget->setItem(RowCurrent,0,new QTableWidgetItem("UserID"));
         ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem(QString::number(Data->Users[i].ID)));
@@ -46,17 +49,30 @@ void TableForm::CreateTable()
         ui->tableWidget->setItem(RowCurrent,0,new QTableWidgetItem("Programs"));
         for(int j=0;j<Data->Users[i].ProgramSize;j++)
         {
-            ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramName"));
+
+            ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramName"));            
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(Data->Users[i].Programs[j].programName));
+            ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramID"));
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].ID)));
+            ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("Hours"));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
             for(int k=0;k<Data->Users[i].Programs[j].HourSize;k++)
             {
+
+
                 ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("creationDate"));
                 ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(Data->Users[i].Programs[j].Hours[k].creationDate.toString("HH:mm:ss, dd.MM.yyyy")));
+
                 RowCurrent++;
                 ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("workTime"));
                 ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].Hours[k].workTime)));
@@ -72,12 +88,17 @@ void TableForm::CreateTable()
                 RowCurrent++;
                 ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("ramUsage"));
                 ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].Hours[k].ramUsage)));
+                PrintCellsDecs(RowCurrent,6,2,2,k%2);
                 RowCurrent++;
+
+
             }
         }
     }
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    delete orangeColor;
 }
 
 
@@ -122,6 +143,8 @@ void TableForm::InitCompliter()
 
 void TableForm::on_pushButtonUserSearch_clicked()
 {
+    QColor* orangeColor =new QColor(245,133,86,150);
+
     QString desiredUser = ui->lineEditUserSearch->text();
     int desiredUserID=0;
     bool conditionUserExist = false;
@@ -161,13 +184,23 @@ void TableForm::on_pushButtonUserSearch_clicked()
     ui->tableWidget->setItem(RowCurrent,0,new QTableWidgetItem("Programs"));
     for(int j=0;j<Data->Users[desiredUserID].ProgramSize;j++)
     {
+
         ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramName"));
         ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(Data->Users[desiredUserID].Programs[j].programName));
+        ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+        ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+        ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+        ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
         RowCurrent++;
         ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramID"));
         ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(QString::number(Data->Users[desiredUserID].Programs[j].ID)));
+        ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+        ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+        ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+        ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
         RowCurrent++;
         ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("Hours"));
+        ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
         for(int k=0;k<Data->Users[desiredUserID].Programs[j].HourSize;k++)
         {
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("creationDate"));
@@ -187,13 +220,18 @@ void TableForm::on_pushButtonUserSearch_clicked()
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("ramUsage"));
             ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(QString::number(Data->Users[desiredUserID].Programs[j].Hours[k].ramUsage)));
+            PrintCellsDecs(RowCurrent,6,2,2,k%2);
             RowCurrent++;
         }
     }
+
+    delete orangeColor;
 }
 
 void TableForm::on_pushButtonProgramSearch_clicked()
-{
+{    
+    QColor* orangeColor =new QColor(245,133,86,150);
+
     QString desiredProgram = ui->lineEditProgramSearch->text();
     bool conditionProgramExist = false;
     for(int i = 0; i<Data->AvalibleProgram.size();i++)
@@ -256,11 +294,20 @@ void TableForm::on_pushButtonProgramSearch_clicked()
                 continue;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramName"));
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(Data->Users[i].Programs[j].programName));
+            ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramID"));
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].ID)));
+            ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("Hours"));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
             for(int k=0;k<Data->Users[i].Programs[j].HourSize;k++)
             {
                 ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("creationDate"));
@@ -280,15 +327,22 @@ void TableForm::on_pushButtonProgramSearch_clicked()
                 RowCurrent++;
                 ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("ramUsage"));
                 ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].Hours[k].ramUsage)));
+                PrintCellsDecs(RowCurrent,6,2,2,k%2);
                 RowCurrent++;
             }
         }
     }
+
+
+    delete orangeColor;
 }
 
 
 void TableForm::on_pushButtonUseFilter_clicked()
 {
+
+    QColor* orangeColor =new QColor(245,133,86,150);
+
     std::vector <QString> desiredUsers;
     std::vector <QString> desiredPrograms;
     bool ZeroCondition = false;
@@ -419,11 +473,20 @@ void TableForm::on_pushButtonUseFilter_clicked()
                 continue;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramName"));
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(Data->Users[i].Programs[j].programName));
+            ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("ProgramID"));
             ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].ID)));
+            ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(""));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,2)->setBackground(*orangeColor);
+            ui->tableWidget->item(RowCurrent,3)->setBackground(*orangeColor);
             RowCurrent++;
             ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem("Hours"));
+            ui->tableWidget->item(RowCurrent,1)->setBackground(*orangeColor);
             for(int k=0;k<Data->Users[i].Programs[j].HourSize;k++)
             {
                 if((Data->Users[i].Programs[j].Hours[k].creationDate<timeStart)||(Data->Users[i].Programs[j].Hours[k].creationDate>timeEnd))
@@ -445,10 +508,13 @@ void TableForm::on_pushButtonUseFilter_clicked()
                 RowCurrent++;
                 ui->tableWidget->setItem(RowCurrent,2,new QTableWidgetItem("ramUsage"));
                 ui->tableWidget->setItem(RowCurrent,3,new QTableWidgetItem(QString::number(Data->Users[i].Programs[j].Hours[k].ramUsage)));
+                PrintCellsDecs(RowCurrent,6,2,2,k%2);
                 RowCurrent++;
             }
         }
     }
+
+    delete orangeColor;
 }
 
 void TableForm::on_pushButtonShowAll_clicked()
@@ -479,4 +545,74 @@ void TableForm::on_checkBoxPrograms_stateChanged(int arg1)
     else
         for(int i=0;i<Data->AvalibleProgram.size();i++)
             ui->listWidgetProgram->item(i)->setCheckState(Qt::Unchecked);
+}
+
+
+void TableForm::PrintCellsDecs(int row, int offsetRow,int string, int offsetString, int colorIndex){
+    QColor** colors= new QColor*[2];
+    colors[0]= new QColor(86,245,160,150);
+    colors[1]= new QColor(86,180,245,150);
+
+
+    int minRow=row-offsetRow;
+    int maxString=string+offsetString;
+    for(;row>minRow;row--){
+        for(int bufferString=string ;bufferString<maxString;bufferString++)
+        {
+            ui->tableWidget->item(row, bufferString)->setBackground(*colors[colorIndex]);
+        }
+    }
+    delete colors[0];
+    delete colors[1];
+    delete [] colors;
+}
+
+void TableForm::on_pushButtonSavePDF_clicked()
+{
+    const int columns = ui->tableWidget->columnCount();
+    const int rows = ui->tableWidget->rowCount();
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+    QTextTableFormat tableFormat;
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setAlignment(Qt::AlignHCenter);
+    tableFormat.setCellPadding(0);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setBorder(1);
+    tableFormat.setBorderBrush(QBrush(Qt::SolidPattern));
+    tableFormat.clearColumnWidthConstraints();
+    QTextTable *textTable = cursor.insertTable(rows + 1, columns, tableFormat);
+    QTextCharFormat tableHeaderFormat;
+    tableHeaderFormat.setBackground(QColor("#DADADA"));
+    for (int i = 0; i < columns; i++) {
+        QTextTableCell cell = textTable->cellAt(0, i);
+        cell.setFormat(tableHeaderFormat);
+        QTextCursor cellCursor = cell.firstCursorPosition();
+        if(ui->tableWidget->horizontalHeaderItem(i) == 0)
+            cellCursor.insertText("");
+        else
+            cellCursor.insertText(ui->tableWidget->horizontalHeaderItem(i)->data(Qt::DisplayRole).toString());
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            QTableWidgetItem *item = ui->tableWidget->item(i, j);
+            if (!item || item->text().isEmpty()) {
+                ui->tableWidget->setItem(i, j, new QTableWidgetItem(""));
+            }
+
+            QTextTableCell cell = textTable->cellAt(i, j);
+            QTextCursor cellCursor = cell.firstCursorPosition();
+            cellCursor.insertText(ui->tableWidget->item(i, j)->text());
+        }
+    }
+    cursor.movePosition(QTextCursor::End);
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOrientation(QPrinter::Landscape);
+    QString FileName = "TableSave"+QDateTime::currentDateTime().toString("HH_mm_ss_dd_MM_yyyy.pdf");
+    printer.setOutputFileName(FileName);
+    doc.setDocumentMargin(0);
+    doc.setTextWidth(12);
+    doc.print(&printer);
 }
