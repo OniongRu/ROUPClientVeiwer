@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include <QSignalBlocker>
 #include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -101,14 +102,8 @@ void MainWindow::onSokReadyRead()
         }
         else if(Accept==1)
         {
-<<<<<<< HEAD
             QJsonArray Array_Users = obj["users"].toArray();
             QJsonArray Array_Programs = obj["programs"].toArray();
-=======
-
-            QJsonArray Array_Users = obj["Users"].toArray();
-            QJsonArray Array_Programs = obj["Programs"].toArray();
->>>>>>> refs/remotes/origin/main
             foreach(const QJsonValue & value, Array_Users)
                 Users.push_back(value.toString());
             foreach(const QJsonValue & value, Array_Programs)
