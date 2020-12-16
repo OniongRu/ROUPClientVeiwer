@@ -566,3 +566,53 @@ void TableForm::PrintCellsDecs(int row, int offsetRow,int string, int offsetStri
     delete colors[1];
     delete [] colors;
 }
+
+void TableForm::on_pushButtonSavePDF_clicked()
+{
+    const int columns = ui->tableWidget->columnCount();
+    const int rows = ui->tableWidget->rowCount();
+    QTextDocument doc;
+    QTextCursor cursor(&doc);
+    QTextTableFormat tableFormat;
+    tableFormat.setHeaderRowCount(1);
+    tableFormat.setAlignment(Qt::AlignHCenter);
+    tableFormat.setCellPadding(0);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setBorder(1);
+    tableFormat.setBorderBrush(QBrush(Qt::SolidPattern));
+    tableFormat.clearColumnWidthConstraints();
+    QTextTable *textTable = cursor.insertTable(rows + 1, columns, tableFormat);
+    QTextCharFormat tableHeaderFormat;
+    tableHeaderFormat.setBackground(QColor("#DADADA"));
+    for (int i = 0; i < columns; i++) {
+        QTextTableCell cell = textTable->cellAt(0, i);
+        cell.setFormat(tableHeaderFormat);
+        QTextCursor cellCursor = cell.firstCursorPosition();
+        if(ui->tableWidget->horizontalHeaderItem(i) == 0)
+            cellCursor.insertText("");
+        else
+            cellCursor.insertText(ui->tableWidget->horizontalHeaderItem(i)->data(Qt::DisplayRole).toString());
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            QTableWidgetItem *item = ui->tableWidget->item(i, j);
+            if (!item || item->text().isEmpty()) {
+                ui->tableWidget->setItem(i, j, new QTableWidgetItem(""));
+            }
+
+            QTextTableCell cell = textTable->cellAt(i, j);
+            QTextCursor cellCursor = cell.firstCursorPosition();
+            cellCursor.insertText(ui->tableWidget->item(i, j)->text());
+        }
+    }
+    cursor.movePosition(QTextCursor::End);
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOrientation(QPrinter::Landscape);
+    QString FileName = "TableSave"+QDateTime::currentDateTime().toString("HH_mm_ss_dd_MM_yyyy.pdf");
+    printer.setOutputFileName(FileName);
+    doc.setDocumentMargin(0);
+    doc.setTextWidth(12);
+    doc.print(&printer);
+}

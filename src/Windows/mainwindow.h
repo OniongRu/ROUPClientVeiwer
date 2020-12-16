@@ -37,9 +37,9 @@ private slots:
 
     void on_tabWidget_tabCloseRequested(int index);
 
-    void on_pushButton_clicked();
 
 
+    void on_tabWidget_tabBarDoubleClicked(int index);
 
 private:
     Ui::MainWindow *ui;
