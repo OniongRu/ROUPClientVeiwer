@@ -5,7 +5,11 @@
 #include <QCompleter>
 #include <QMessageBox>
 #include <algorithm>
+#include <QTextDocument>
+#include <QPrinter>
+#include <QTextTableCell>
 #include "Objects/usermanager.h"
+
 namespace Ui {
 class TableForm;
 }
@@ -31,6 +35,8 @@ private slots:
 
     void on_checkBoxPrograms_stateChanged(int arg1);
 
+    void on_pushButtonSavePDF_clicked();
+
 private:
     Ui::TableForm *ui;
     UserManager *Data;
@@ -41,7 +47,6 @@ private:
     void InitFilter();
     void InitCompliter();
     void PrintCellsDecs(int row, int offsetRow,int string, int offsetString, int colorIndex);
-
 };
 
 #endif // TABLEFORM_H
