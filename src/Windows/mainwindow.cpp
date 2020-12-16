@@ -92,16 +92,16 @@ void MainWindow::onSokReadyRead()
     int OpType = obj["OpType"].toString().toInt();
     if(OpType==0)
     {
-        int Accept = obj["Accept"].toString().toInt();
+        int Accept = obj["accept"].toInt();
         if(Accept==0)
         {
              Log->statusBar()->showMessage("Wrong log data");
              //UnitTest->TestBad(data);
         }
-        if(Accept==1)
+        else if(Accept==1)
         {
-            QJsonArray Array_Users = obj["Users"].toArray();
-            QJsonArray Array_Programs = obj["Programs"].toArray();
+            QJsonArray Array_Users = obj["users"].toArray();
+            QJsonArray Array_Programs = obj["programs"].toArray();
             foreach(const QJsonValue & value, Array_Users)
                 Users.push_back(value.toString());
             foreach(const QJsonValue & value, Array_Programs)
