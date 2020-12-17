@@ -8,6 +8,7 @@
 #include <QNetworkAccessManager>
 
 #include "logwindow.h"
+#include "Objects/account.h"
 #include "Forms/dataform.h"
 #include "Forms/chooseform.h"
 #include "Objects/usermanager.h"
@@ -48,6 +49,8 @@ private:
     //UserManager *Data;
     std::vector<QString>Users;
     std::vector<QString>Programs;
+    Account *myaccount;
+
     void LogSuccessful();
 
     bool LogInStatus = false;

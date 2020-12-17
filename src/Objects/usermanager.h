@@ -18,7 +18,6 @@ public:
     std::vector<QString> AvalibleProgram;
     QDateTime StartDate=QDateTime::currentDateTime();
     QDateTime EndDate=QDateTime::currentDateTime();
-
     void read(const QJsonObject &json);
     void initAvalibleProgram();
     void initTimeBorders();

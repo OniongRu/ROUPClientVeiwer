@@ -50,25 +50,24 @@ void LogWindow::on_BLog_clicked()
 
 void LogWindow::on_BNext_clicked()
 {
-    //QByteArray arrBlock;
-    //QDataStream out(&arrBlock, QIODevice::ReadWrite);
-    //QString m = "flag2";
+
     QString m = "Initialize observer\n";
 
     //Here json needed: name: "name", password: "16 bytes"
-
     QJsonObject root;
     root["name"] = ui->EditLogin->text();
+    login = ui->EditLogin->text();
     //Password to be encrypted here
     root["password"] = "nYTQ4q/9v8UcKK64U2cz9g==";
+    //password = ui->EditPassword->text(); //TODO add password's encryption
+    password = "nYTQ4q/9v8UcKK64U2cz9g==";
     qDebug() << qUtf8Printable(m);
     QString data = m + QJsonDocument(root).toJson();
-    //out << qUtf8Printable(m) + QJsonDocument(root).toJson();
-
-
-    //out << quint16(0) << qUtf8Printable(m);
-    //out.device()->seek(0);
-    //out << quint16(arrBlock.size() - sizeof(quint16));
     Client->write(qUtf8Printable(data));
-    //Client->write(arrBlock);
+}
+
+void LogWindow::accountInfo(Account *myaccount)
+{
+    myaccount->login = login;
+    myaccount->password = password;
 }

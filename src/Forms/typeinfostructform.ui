@@ -56,7 +56,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="QCheckBox" name="checkBox">
+            <widget class="QCheckBox" name="checkBoxAllUsers">
              <property name="text">
               <string>Выбрать всех</string>
              </property>
@@ -101,7 +101,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QCheckBox" name="checkBox_2">
+            <widget class="QCheckBox" name="checkBoxAllPrograms">
              <property name="text">
               <string>Выбрать всех</string>
              </property>

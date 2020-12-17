@@ -98,7 +98,6 @@ void MainWindow::onSokReadyRead()
         if(Accept==0)
         {
              Log->statusBar()->showMessage("Wrong log data");
-             //UnitTest->TestBad(data);
         }
         else if(Accept==1)
         {
@@ -108,8 +107,8 @@ void MainWindow::onSokReadyRead()
                 Users.push_back(value.toString());
             foreach(const QJsonValue & value, Array_Programs)
                 Programs.push_back(value.toString());
+            Log->accountInfo(myaccount);
             Log->LogAccept();
-            //UnitTest->TestAvalible(data);
         }
     }
     if(OpType==1)
@@ -117,14 +116,12 @@ void MainWindow::onSokReadyRead()
         qDebug()<<"ReadBigJson\n";
         UserManager *Data = new UserManager();
         Data->read(obj);
-        //qDebug()<<data;
         QWidget *container = ui->tabWidget->currentWidget();
         QWidget *old_content = dynamic_cast<QWidget*>(container->children()[0]);
         delete old_content;
-        QWidget *new_content = new TableForm(container,Data);
+        QWidget *new_content = new TableForm(container, Data);
         container->layout()->addWidget(new_content);
         new_content->show();
-        //UnitTest->TestJson(data);
     }
 
 }
@@ -173,14 +170,10 @@ void MainWindow::on_AddTab_clicked()
     QWidget *container = new QWidget;
     //QPalette Pal(palette()); Pal.setColor(QPalette::Background, Qt::green); container->setAutoFillBackground(true); container->setPalette(Pal);
     QHBoxLayout *hlayout = new QHBoxLayout();
-    hlayout->addWidget(new TypeInfoStructForm(container,Users,Programs,Client));
+    hlayout->addWidget(new TypeInfoStructForm(container, Users, Programs, Client));
     container->setLayout(hlayout);
     ui->tabWidget->addTab(container, QString("Tab %0").arg(ui->tabWidget->count()+1));
     ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);
-    //DataForm *content = new DataForm(container);
-    //content->show();
-    /*ui->tabWidget->addTab(new DataForm(), QString("Tab %0").arg(ui->tabWidget->count()+1));
-    ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);*/
 }
 
 void MainWindow::on_tabWidget_tabCloseRequested(int index)
@@ -194,7 +187,7 @@ void MainWindow::LogSuccessful()
     LogInStatus=true;
     QWidget *container = new QWidget;
     QHBoxLayout *hlayout = new QHBoxLayout();
-    hlayout->addWidget(new TypeInfoStructForm(container,Users,Programs,Client));
+    hlayout->addWidget(new TypeInfoStructForm(container,Users, Programs, Client, myaccount));
     container->setLayout(hlayout);
     ui->tabWidget->addTab(container, QString("Tab %0").arg(ui->tabWidget->count()+1));
     ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);
