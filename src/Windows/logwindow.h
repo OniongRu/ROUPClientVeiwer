@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QNetworkAccessManager>
 #include <QCloseEvent>
+#include <Objects/account.h>
 
 namespace Ui {
 class LogWindow;
@@ -24,6 +25,7 @@ public:
     ~LogWindow();
 
     void LogAccept();
+    void accountInfo(Account *myaccount);
 
 signals:
     void SigLog();
@@ -38,8 +40,13 @@ private slots:
 private:
     Ui::LogWindow *ui;
     QTcpSocket *Client;
+    QString login;
+    QString password;
+
     bool TypeClose;
+
     void closeEvent (QCloseEvent *event);
+
 };
 
 #endif // LOGWINDOW_H

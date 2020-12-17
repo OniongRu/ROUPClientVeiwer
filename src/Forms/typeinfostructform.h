@@ -6,8 +6,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
-
-
+#include <Objects/account.h>
+#include <QJsonArray>
 namespace Ui {
 class TypeInfoStructForm;
 }
@@ -17,20 +17,27 @@ class TypeInfoStructForm : public QWidget
     Q_OBJECT
 
 public:
-    explicit TypeInfoStructForm(QWidget *parent = nullptr, const std::vector<QString> &Users = {}, const std::vector<QString> &Programs = {}, QTcpSocket *Client=NULL);
+    explicit TypeInfoStructForm(QWidget *parent = nullptr, const std::vector<QString> &Users = {}, const std::vector<QString> &Programs = {}, QTcpSocket *Client=NULL, Account *myaccount=nullptr);
     ~TypeInfoStructForm();
     void meme(std::vector<QString>&m);
 private slots:
     void on_buttonSendJson_clicked();
+
+    void on_checkBoxAllUsers_stateChanged(int arg1);
+
+    void on_checkBoxAllPrograms_stateChanged(int arg1);
 
 private:
     Ui::TypeInfoStructForm *ui;
     std::vector<QString> Users;
     std::vector<QString> Programs;
     QTcpSocket *Client;
+    QString login;
+    QString password;
     void InitUsers();
     void InitProgrmas();
     void InitTypes();
+
 };
 
 #endif // TYPEINFOSTRUCTFORM_H

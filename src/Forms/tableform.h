@@ -9,7 +9,7 @@
 #include <QPrinter>
 #include <QTextTableCell>
 #include "Objects/usermanager.h"
-
+#include "Objects/account.h"
 namespace Ui {
 class TableForm;
 }
@@ -42,7 +42,6 @@ private:
     UserManager *Data;
     QCompleter *compliterAvalibleUsers;
     QCompleter *compliterAvaliblePrograms;
-
     void CreateTable();
     void InitFilter();
     void InitCompliter();

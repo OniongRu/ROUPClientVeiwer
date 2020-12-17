@@ -12,8 +12,10 @@ CONFIG += c++11
 SOURCES += \
     Forms/chooseform.cpp \
     Forms/dataform.cpp \
+    Forms/graphicform.cpp \
     Forms/tableform.cpp \
     Forms/typeinfostructform.cpp \
+    Objects/account.cpp \
     Objects/hourinfo.cpp \
     Objects/program.cpp \
     Objects/user.cpp \
@@ -26,8 +28,10 @@ SOURCES += \
 HEADERS += \
     Forms/chooseform.h \
     Forms/dataform.h \
+    Forms/graphicform.h \
     Forms/tableform.h \
     Forms/typeinfostructform.h \
+    Objects/account.h \
     Objects/hourinfo.h \
     Objects/program.h \
     Objects/user.h \
@@ -39,6 +43,7 @@ HEADERS += \
 FORMS += \
     Forms/chooseform.ui \
     Forms/dataform.ui \
+    Forms/graphicform.ui \
     Forms/tableform.ui \
     Forms/typeinfostructform.ui \
     Windows/logwindow.ui \
