@@ -72,7 +72,7 @@ void TypeInfoStructForm::on_buttonSendJson_clicked()
     QString data = msg + QJsonDocument(root).toJson();
 
     int i = Client->write(qUtf8Printable(data));
-    qDebug()<<i;
+    qDebug()<<i<<" "<<data;
 
 }
 

@@ -56,7 +56,7 @@ void LogWindow::on_BNext_clicked()
     //Here json needed: name: "name", password: "16 bytes"
     QJsonObject root;
     root["name"] = ui->EditLogin->text();
-    login = ui->EditLogin->text();
+    login = "";
     //Password to be encrypted here
     root["password"] = "nYTQ4q/9v8UcKK64U2cz9g==";
     //password = ui->EditPassword->text(); //TODO add password's encryption

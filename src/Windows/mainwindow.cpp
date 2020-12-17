@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->setCurrentWidget(new DataForm());
 
     this->setEnabled(0);
-
+    myaccount = new Account();
     Client = new QTcpSocket();
     connect(Client, SIGNAL(connected()), this, SLOT(onSokConnected()));
     connect(Client, SIGNAL(readyRead()), this, SLOT(onSokReadyRead()));
@@ -162,6 +162,7 @@ void MainWindow::onSokDisconnected()
 
 MainWindow::~MainWindow()
 {
+    delete myaccount;
     delete ui;
 }
 
