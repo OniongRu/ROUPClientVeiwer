@@ -67,8 +67,8 @@ void TypeInfoStructForm::on_buttonSendJson_clicked()
     }
     root["users"] = jsonUsers;
     root["programs"] = jsonPrograms;
-    root["start"] = ui->dateTimeEditStart->dateTime().toString("HH:mm:ss, dd.MM.yyyy");
-    root["end"] = ui->dateTimeEditEnd->dateTime().toString("HH:mm:ss, dd.MM.yyyy");
+    root["from"] = ui->dateTimeEditStart->dateTime().toString("HH:mm:ss, dd.MM.yyyy");
+    root["to"] = ui->dateTimeEditEnd->dateTime().toString("HH:mm:ss, dd.MM.yyyy");
     QString data = msg + QJsonDocument(root).toJson();
 
     int i = Client->write(qUtf8Printable(data));
