@@ -7,7 +7,7 @@ UserManager::UserManager()
 
 void UserManager::read(const QJsonObject &json)
 {
-    QJsonArray Array_Users = json["Users"].toArray();
+    QJsonArray Array_Users = json["users"].toArray();
     UserSize = Array_Users.size();
     Users = new User[UserSize];
     int el_num = 0;

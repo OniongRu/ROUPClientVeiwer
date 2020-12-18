@@ -12,8 +12,8 @@ void HourInfo::read(const QJsonObject &json)
     QString DateStr =json["creationDate"].toString(); //"Nov 18, 2020, 8:54:32 PM"
     creationDate = mylocale.toDateTime(DateStr,DateForm);
     //qDebug()<<DateStr<<" "<<creationDate.toString(DateForm);
-    workTime = json["workTime"].toString().toInt();
-    activeWindowTime = json["activeWindowTime"].toString().toInt();
+    workTime = json["timeSum"].toString().toInt();
+    activeWindowTime = json["timeActSum"].toString().toInt();
     threadAmount = json["threadAmount"].toString().toInt();
     cpuUsage = json["cpuUsage"].toString().toDouble();
     ramUsage = json["ramUsage"].toString().toInt();

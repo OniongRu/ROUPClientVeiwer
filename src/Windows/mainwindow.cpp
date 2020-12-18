@@ -91,7 +91,7 @@ void MainWindow::onSokReadyRead()
     {
         obj = doc.object();
     }
-    int OpType = obj["OpType"].toString().toInt();
+    int OpType = obj["OpType"].toInt();
     if(OpType==0)
     {
         int Accept = obj["accept"].toInt();
@@ -113,15 +113,23 @@ void MainWindow::onSokReadyRead()
     }
     if(OpType==1)
     {
-        qDebug()<<"ReadBigJson\n";
-        UserManager *Data = new UserManager();
-        Data->read(obj);
-        QWidget *container = ui->tabWidget->currentWidget();
-        QWidget *old_content = dynamic_cast<QWidget*>(container->children()[0]);
-        delete old_content;
-        QWidget *new_content = new TableForm(container, Data);
-        container->layout()->addWidget(new_content);
-        new_content->show();
+        int Accept = obj["accept"].toInt();
+        if(Accept==0)
+        {
+             Log->statusBar()->showMessage("Wrong log data");
+        }
+        else if(Accept==1)
+        {
+            qDebug()<<"ReadBigJson\n";
+            UserManager *Data = new UserManager();
+            Data->read(obj);
+            QWidget *container = ui->tabWidget->currentWidget();
+            QWidget *old_content = dynamic_cast<QWidget*>(container->children()[0]);
+            delete old_content;
+            QWidget *new_content = new TableForm(container, Data);
+            container->layout()->addWidget(new_content);
+            new_content->show();
+        }
     }
 
 }
