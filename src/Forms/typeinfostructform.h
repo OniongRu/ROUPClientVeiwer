@@ -17,9 +17,10 @@ class TypeInfoStructForm : public QWidget
     Q_OBJECT
 
 public:
-    explicit TypeInfoStructForm(QWidget *parent = nullptr, const std::vector<QString> &Users = {}, const std::vector<QString> &Programs = {}, QTcpSocket *Client=NULL, Account *myaccount=nullptr);
+    explicit TypeInfoStructForm(QWidget *parent = nullptr, const std::vector<QString> &Users = {}, const std::vector<QString> &Programs = {}, QTcpSocket *Client=NULL, Account *myaccount=nullptr, QString *typeData=nullptr);
     ~TypeInfoStructForm();
     void meme(std::vector<QString>&m);
+
 private slots:
     void on_buttonSendJson_clicked();
 
@@ -34,6 +35,7 @@ private:
     QTcpSocket *Client;
     QString login;
     QString password;
+    QString *typeData;
     void InitUsers();
     void InitProgrmas();
     void InitTypes();

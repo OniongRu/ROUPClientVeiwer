@@ -7,16 +7,18 @@ HourInfo::HourInfo()
 
 void HourInfo::read(const QJsonObject &json)
 {
-    QString DateForm = "MMM dd, yyyy, h:m:s AP";
+    QString DateForm = "dd.MM.yyyy, HH:mm";
     QLocale mylocale(QLocale::English);
-    QString DateStr =json["creationDate"].toString(); //"Nov 18, 2020, 8:54:32 PM"
+    QString DateStr =json["creationDate"].toString(); //"18.12.2020, 14:00"
     creationDate = mylocale.toDateTime(DateStr,DateForm);
+    dataPackCount = json["dataPackCount"].toInt();
     //qDebug()<<DateStr<<" "<<creationDate.toString(DateForm);
-    workTime = json["timeSum"].toString().toInt();
-    activeWindowTime = json["timeActSum"].toString().toInt();
-    threadAmount = json["threadAmount"].toString().toInt();
-    cpuUsage = json["cpuUsage"].toString().toDouble();
-    ramUsage = json["ramUsage"].toString().toInt();
+    workTime = json["timeSum"].toInt();
+    activeWindowTime = json["timeActSum"].toInt();
+    QJsonObject resource = json["resource"].toObject();
+    threadAmount = resource["threadAmount"].toInt();
+    cpuUsage = resource["cpuUsage"].toDouble();
+    ramUsage = resource["ramUsage"].toInt();
 }
 
 //https://ravesli.com/urok-3-data-i-vremya-v-qt5/#toc-0

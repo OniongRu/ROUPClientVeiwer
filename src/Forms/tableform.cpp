@@ -8,8 +8,8 @@ TableForm::TableForm(QWidget *parent,UserManager *Data) :
     ui->setupUi(this);
     this->Data = Data;
     CreateTable();
-    Data->initAvalibleProgram();
-    Data->initTimeBorders();
+    this->Data->initAvalibleProgram();
+    this->Data->initTimeBorders();
     InitFilter();
     InitCompliter();
 }
@@ -34,6 +34,7 @@ void TableForm::CreateTable()
         }
     }
     ui->label_filter->setStyleSheet("background-color: rgb(255, 99, 99); border: 1px solid black");
+    ui->label_filter->setText("Filters inactive");
     ui->tableWidget->setRowCount(RowSize);
     ui->tableWidget->setColumnCount(4);
     int RowCurrent=0;
@@ -175,6 +176,7 @@ void TableForm::on_pushButtonUserSearch_clicked()
     ui->tableWidget->setColumnCount(4);
     int RowCurrent=0;
     ui->label_filter->setStyleSheet("background-color: rgb(66, 255, 145); border: 1px solid black");
+    ui->label_filter->setText("Filters active");
     ui->tableWidget->setItem(RowCurrent,0,new QTableWidgetItem("UserName"));
     ui->tableWidget->setItem(RowCurrent,1,new QTableWidgetItem(Data->Users[desiredUserID].userName));
     RowCurrent++;
@@ -251,6 +253,7 @@ void TableForm::on_pushButtonProgramSearch_clicked()
     ui->tableWidget->setRowCount(1);
     ui->tableWidget->setColumnCount(1);
     ui->label_filter->setStyleSheet("background-color: rgb(66, 255, 145); border: 1px solid black");
+    ui->label_filter->setText("Filters active");
     int RowSize=0;
     for(int i=0;i<Data->UserSize;i++)
     {
@@ -375,7 +378,7 @@ void TableForm::on_pushButtonUseFilter_clicked()
     }
     QDateTime timeStart = ui->dateTimeEditStart->dateTime();
     QDateTime timeEnd = ui->dateTimeEditEnd->dateTime();
-    if(timeStart>=timeEnd)
+    if(timeStart>timeEnd)
     {
         QMessageBox::warning(this, "Wrong dates","Дата начала < Дата конца");
         return;
@@ -416,6 +419,7 @@ void TableForm::on_pushButtonUseFilter_clicked()
     ui->tableWidget->setRowCount(1);
     ui->tableWidget->setColumnCount(1);
     ui->label_filter->setStyleSheet("background-color: rgb(66, 255, 145); border: 1px solid black");
+    ui->label_filter->setText("Filters active");
     ui->tableWidget->setRowCount(RowSize);
     ui->tableWidget->setColumnCount(4);
     int RowCurrent=0;

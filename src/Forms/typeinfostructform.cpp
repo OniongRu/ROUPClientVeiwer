@@ -1,7 +1,7 @@
 #include "typeinfostructform.h"
 #include "ui_typeinfostructform.h"
 #include <QMessageBox>
-TypeInfoStructForm::TypeInfoStructForm(QWidget *parent, const std::vector<QString> &Users, const std::vector<QString> &Programs, QTcpSocket *Client, Account *myaccount) :
+TypeInfoStructForm::TypeInfoStructForm(QWidget *parent, const std::vector<QString> &Users, const std::vector<QString> &Programs, QTcpSocket *Client, Account *myaccount, QString *typeData) :
     QWidget(parent),
     ui(new Ui::TypeInfoStructForm)
 {
@@ -9,11 +9,13 @@ TypeInfoStructForm::TypeInfoStructForm(QWidget *parent, const std::vector<QStrin
     this->Users = Users;
     this->Programs = Programs;
     this->Client=Client;
+    this->typeData = typeData;
     login = myaccount->login;
     password = myaccount->password;
     InitUsers();
     InitProgrmas();
     InitTypes();
+
 }
 
 TypeInfoStructForm::~TypeInfoStructForm()
@@ -70,10 +72,9 @@ void TypeInfoStructForm::on_buttonSendJson_clicked()
     root["from"] = ui->dateTimeEditStart->dateTime().toString("HH:mm:ss, dd.MM.yyyy");
     root["to"] = ui->dateTimeEditEnd->dateTime().toString("HH:mm:ss, dd.MM.yyyy");
     QString data = msg + QJsonDocument(root).toJson();
-
     int i = Client->write(qUtf8Printable(data));
     qDebug()<<i<<" "<<data;
-
+    *typeData = ui->comboType->currentText();
 }
 
 void TypeInfoStructForm::InitUsers()
@@ -95,8 +96,9 @@ void TypeInfoStructForm::InitProgrmas()
 void TypeInfoStructForm::InitTypes()
 {
     ui->comboType->addItem("Table");
-    ui->comboType->addItem("Graphic");
-    ui->comboType->addItem("Diagram");
+    //ui->comboType->addItem("Graphic");
+    //ui->comboType->addItem("Diagram");
+    ui->comboType->addItem("Statistics");
 }
 
 void TypeInfoStructForm::on_checkBoxAllUsers_stateChanged(int arg1)

@@ -7,8 +7,7 @@ User::User()
 void User::read(const QJsonObject &json)
 {
    userName =json["name"].toString();
-   ID = json["ID"].toString().toInt();
-   qDebug() << ID << endl;
+   ID = json["ID"].toInt();
    QJsonArray Array_Programs = json["programs"].toArray();
    ProgramSize = Array_Programs.size();
    Programs = new Program[ProgramSize];

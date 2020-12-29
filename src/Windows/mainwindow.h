@@ -14,6 +14,7 @@
 #include "Objects/usermanager.h"
 #include "Forms/typeinfostructform.h"
 #include "Forms/tableform.h"
+#include "Forms/statisticsform.h"
 #include <QProgressDialog>
 //#include "Tests/testentiretydata.h"
 namespace Ui {
@@ -50,7 +51,7 @@ private:
     std::vector<QString>Users;
     std::vector<QString>Programs;
     Account *myaccount;
-
+    QString TypeDataShow;
     void LogSuccessful();
 
     bool LogInStatus = false;

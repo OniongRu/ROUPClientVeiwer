@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
-#include <QSignalBlocker>
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -123,10 +122,17 @@ void MainWindow::onSokReadyRead()
             qDebug()<<"ReadBigJson\n";
             UserManager *Data = new UserManager();
             Data->read(obj);
+
             QWidget *container = ui->tabWidget->currentWidget();
             QWidget *old_content = dynamic_cast<QWidget*>(container->children()[0]);
             delete old_content;
-            QWidget *new_content = new TableForm(container, Data);
+            QWidget *new_content;
+            if(TypeDataShow=="Table")
+                new_content = new TableForm(container, Data);
+            if(TypeDataShow=="Statistics")
+                new_content = new StatisticsForm(container, Data);
+            if((TypeDataShow!="Statistics")&&(TypeDataShow!="Table"))
+                new_content = new TableForm(container, Data);
             container->layout()->addWidget(new_content);
             new_content->show();
         }
@@ -179,7 +185,7 @@ void MainWindow::on_AddTab_clicked()
     QWidget *container = new QWidget;
     //QPalette Pal(palette()); Pal.setColor(QPalette::Background, Qt::green); container->setAutoFillBackground(true); container->setPalette(Pal);
     QHBoxLayout *hlayout = new QHBoxLayout();
-    hlayout->addWidget(new TypeInfoStructForm(container, Users, Programs, Client));
+    hlayout->addWidget(new TypeInfoStructForm(container, Users, Programs, Client, myaccount, &TypeDataShow));
     container->setLayout(hlayout);
     ui->tabWidget->addTab(container, QString("Tab %0").arg(ui->tabWidget->count()+1));
     ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);
@@ -196,7 +202,7 @@ void MainWindow::LogSuccessful()
     LogInStatus=true;
     QWidget *container = new QWidget;
     QHBoxLayout *hlayout = new QHBoxLayout();
-    hlayout->addWidget(new TypeInfoStructForm(container,Users, Programs, Client, myaccount));
+    hlayout->addWidget(new TypeInfoStructForm(container,Users, Programs, Client, myaccount, &TypeDataShow));
     container->setLayout(hlayout);
     ui->tabWidget->addTab(container, QString("Tab %0").arg(ui->tabWidget->count()+1));
     ui->tabWidget->setCurrentIndex(ui->tabWidget->count()-1);

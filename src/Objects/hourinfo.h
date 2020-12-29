@@ -17,6 +17,7 @@ public:
     int threadAmount;
     double cpuUsage;
     int ramUsage;
+    int dataPackCount;
     void read(const QJsonObject &json);
 
     HourInfo& operator=(const HourInfo& right) {

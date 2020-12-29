@@ -7,7 +7,7 @@ Program::Program()
 void Program::read(const QJsonObject &json)
 {
     programName =json["name"].toString();
-    ID = json["ID"].toString().toInt();
+    ID = json["ID"].toInt();
     QJsonArray Array_Hours = json["hourWork"].toArray();
     HourSize = Array_Hours.size();
     Hours = new HourInfo[HourSize];
