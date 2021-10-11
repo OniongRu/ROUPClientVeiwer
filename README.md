@@ -1,5 +1,4 @@
-# ROUPClientVeiwer 
-Old client-viewer of users' data
+ROUPClientVeiwer (old client-viewer of users' data)
 
 ### The other parts of this project:
 - Web-app server: https://github.com/OniongRu/ServerCOUP
